@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BasicController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,10 @@ use App\Http\Controllers\BasicController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::post('/data',[BasicController::class, 'createData']);
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::controller(ProfileController::class)->prefix('profile')->group(function () {
+    Route::get('/','index');
+    Route::post('create','create');
+    Route::post('update','update');
+    Route::post('change-password','changePassword');
 });
+

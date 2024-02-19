@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BasicController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +14,3 @@ use App\Http\Controllers\BasicController;
 |
 */
 
-Route::get('/data/{id}', [BasicController::class, 'findDataId']);
-Route::get('/dataname/{nama}',[BasicController::class, 'findName']);
